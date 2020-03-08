@@ -1,0 +1,657 @@
+/*!
+ * project-name v0.0.1
+ * A description for your project.
+ * (c) 2019 YOUR NAME
+ * MIT License
+ * http://link-to-your-git-repo.com
+ */
+
+/* PrismJS 1.16.0
+https://prismjs.com/download.html#themes=prism-coy&languages=markup+css+clike+javascript+scss+sass&plugins=toolbar+unescaped-markup+normalize-whitespace+copy-to-clipboard */
+/**
+ * prism.js Coy theme for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/tshedor/workshop-wp-theme (Example: http://workshop.kansan.com/category/sessions/basics or http://workshop.timshedor.com/category/sessions/basics);
+ * @author Tim  Shedor
+ */
+/* line 9, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+/* line 33, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+pre[class*="language-"] {
+  position: relative;
+  margin: 1rem 0;
+  overflow: visible;
+  padding: 1rem;
+  border: #dfe0ea solid 2px;
+  border-radius: 0.65rem;
+}
+
+/* line 41, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+pre[class*="language-"] > code {
+  position: relative;
+  background-color: #fdfdfd;
+  background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
+  background-size: 3em 3em;
+  background-origin: content-box;
+  background-attachment: local;
+}
+
+/* line 50, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+code[class*="language"] {
+  max-height: inherit;
+  height: inherit;
+  padding: 0 1em;
+  display: block;
+  overflow: auto;
+}
+
+/* Margin bottom to accommodate shadow */
+/* line 59, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background-color: #fdfdfd;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+}
+
+/* Inline code */
+/* line 69, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+:not(pre) > code[class*="language-"] {
+  position: relative;
+  padding: .2em;
+  border-radius: 0.3em;
+  color: #c92c2c;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: inline;
+  white-space: normal;
+}
+
+/* line 79, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #7D8B99;
+}
+
+/* line 87, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+.token.punctuation {
+  color: #5F6364;
+}
+
+/* line 91, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.function-name,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #c92c2c;
+}
+
+/* line 102, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.function,
+.token.builtin,
+.token.inserted {
+  color: #2f9c0a;
+}
+
+/* line 112, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+.token.operator,
+.token.entity,
+.token.url,
+.token.variable {
+  color: #a67f59;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* line 120, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+.token.atrule,
+.token.attr-value,
+.token.keyword,
+.token.class-name {
+  color: #1990b8;
+}
+
+/* line 127, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+.token.regex,
+.token.important {
+  color: #e90;
+}
+
+/* line 132, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+.language-css .token.string,
+.style .token.string {
+  color: #a67f59;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* line 138, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+.token.important {
+  font-weight: normal;
+}
+
+/* line 142, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+.token.bold {
+  font-weight: bold;
+}
+
+/* line 145, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+.token.italic {
+  font-style: italic;
+}
+
+/* line 149, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+.token.entity {
+  cursor: help;
+}
+
+/* line 153, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+.namespace {
+  opacity: .7;
+}
+
+/* Plugin styles */
+/* line 158, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+.token.tab:not(:empty):before,
+.token.cr:before,
+.token.lf:before {
+  color: #e0d7d1;
+}
+
+/* Plugin styles: Line Numbers */
+/* line 165, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+pre[class*="language-"].line-numbers.line-numbers {
+  padding-left: 0;
+}
+
+/* line 169, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+pre[class*="language-"].line-numbers.line-numbers code {
+  padding-left: 3.8em;
+}
+
+/* line 173, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+pre[class*="language-"].line-numbers.line-numbers .line-numbers-rows {
+  left: 0;
+}
+
+/* Plugin styles: Line Highlight */
+/* line 178, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+pre[class*="language-"][data-line] {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+/* line 183, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+pre[data-line] code {
+  position: relative;
+  padding-left: 4em;
+}
+
+/* line 187, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+pre .line-highlight {
+  margin-top: 0;
+}
+
+/* line 191, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+div.code-toolbar {
+  position: relative;
+}
+
+/* line 195, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+div.code-toolbar > .toolbar {
+  position: absolute;
+  top: .3em;
+  right: .2em;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+/* line 203, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+div.code-toolbar:hover > .toolbar {
+  opacity: 1;
+}
+
+/* Separate line b/c rules are thrown out if selector is invalid.
+   IE11 and old Edge versions don't support :focus-within. */
+/* line 209, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+div.code-toolbar:focus-within > .toolbar {
+  opacity: 1;
+}
+
+/* line 213, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+div.code-toolbar > .toolbar .toolbar-item {
+  display: inline-block;
+}
+
+/* line 217, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+div.code-toolbar > .toolbar a {
+  cursor: pointer;
+}
+
+/* line 221, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+div.code-toolbar > .toolbar button {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-user-select: none;
+  /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* line 234, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+  color: #bbb;
+  font-size: .8em;
+  padding: 0 .5em;
+  background: #f5f2f0;
+  background: rgba(224, 224, 224, 0.2);
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
+  border-radius: .5em;
+}
+
+/* line 246, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+div.code-toolbar > .toolbar a:hover,
+div.code-toolbar > .toolbar a:focus,
+div.code-toolbar > .toolbar button:hover,
+div.code-toolbar > .toolbar button:focus,
+div.code-toolbar > .toolbar span:hover,
+div.code-toolbar > .toolbar span:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Fallback, in case JS does not run, to ensure the code is at least visible */
+/* line 257, ../ui-kit-docs-source/src/vendor/prismjs/scss/_prism.scss */
+[class*='lang-'] script[type='text/plain'],
+[class*='language-'] script[type='text/plain'],
+script[type='text/plain'][class*='lang-'],
+script[type='text/plain'][class*='language-'] {
+  display: block;
+  font: 100% Consolas, Monaco, monospace;
+  white-space: pre;
+  overflow: auto;
+}
+
+/* line 5, ../ui-kit-docs-source/src/scss/docs/_nav.scss */
+.bd-navbar {
+  min-height: 4rem;
+  background-color: #563d7c;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  z-index: 1071 !important;
+}
+
+@media (max-width: 991.98px) {
+  /* line 5, ../ui-kit-docs-source/src/scss/docs/_nav.scss */
+  .bd-navbar {
+    padding-right: .5rem;
+    padding-left: .5rem;
+  }
+  /* line 15, ../ui-kit-docs-source/src/scss/docs/_nav.scss */
+  .bd-navbar .navbar-nav-scroll {
+    max-width: 100%;
+    height: 2.5rem;
+    margin-top: .25rem;
+    overflow: hidden;
+  }
+  /* line 21, ../ui-kit-docs-source/src/scss/docs/_nav.scss */
+  .bd-navbar .navbar-nav-scroll .navbar-nav {
+    padding-bottom: 2rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (min-width: 768px) {
+  @supports ((position: -webkit-sticky) or (position: sticky)) {
+    /* line 5, ../ui-kit-docs-source/src/scss/docs/_nav.scss */
+    .bd-navbar {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 1071;
+    }
+  }
+}
+
+/* line 39, ../ui-kit-docs-source/src/scss/docs/_nav.scss */
+.bd-navbar .navbar-nav .nav-link {
+  padding-right: .5rem;
+  padding-left: .5rem;
+  color: #dddff5;
+}
+
+/* line 44, ../ui-kit-docs-source/src/scss/docs/_nav.scss */
+.bd-navbar .navbar-nav .nav-link.active, .bd-navbar .navbar-nav .nav-link:hover {
+  color: #fff;
+  background-color: transparent;
+}
+
+/* line 50, ../ui-kit-docs-source/src/scss/docs/_nav.scss */
+.bd-navbar .navbar-nav .nav-link.active {
+  font-weight: 600;
+}
+
+/* line 56, ../ui-kit-docs-source/src/scss/docs/_nav.scss */
+.bd-navbar .navbar-nav-svg {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  vertical-align: text-top;
+}
+
+/* line 63, ../ui-kit-docs-source/src/scss/docs/_nav.scss */
+.bd-navbar .dropdown-menu {
+  font-size: 0.875rem;
+}
+
+/* line 67, ../ui-kit-docs-source/src/scss/docs/_nav.scss */
+.bd-navbar .dropdown-item.active {
+  font-weight: 600;
+  color: #3b3e66;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23292b2c' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: .4rem .6rem;
+  background-size: .75rem .75rem;
+}
+
+/* line 1, ../ui-kit-docs-source/src/scss/docs/_content.scss */
+.bd-content {
+  order: 1;
+}
+
+/* line 5, ../ui-kit-docs-source/src/scss/docs/_content.scss */
+.bd-content > h2[id],
+.bd-content > h3[id],
+.bd-content > h4[id] {
+  pointer-events: none;
+}
+
+/* line 10, ../ui-kit-docs-source/src/scss/docs/_content.scss */
+.bd-content > h2[id]::before,
+.bd-content > h3[id]::before,
+.bd-content > h4[id]::before {
+  display: block;
+  height: 6rem;
+  margin-top: -6rem;
+  content: "";
+}
+
+/* line 18, ../ui-kit-docs-source/src/scss/docs/_content.scss */
+.bd-content > table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 991.98px) {
+  /* line 18, ../ui-kit-docs-source/src/scss/docs/_content.scss */
+  .bd-content > table {
+    display: block;
+    overflow-x: auto;
+  }
+  /* line 27, ../ui-kit-docs-source/src/scss/docs/_content.scss */
+  .bd-content > table.table-bordered {
+    border: 0;
+  }
+}
+
+/* line 37, ../ui-kit-docs-source/src/scss/docs/_content.scss */
+.bd-content > table > thead > tr > th,
+.bd-content > table > thead > tr > td,
+.bd-content > table > tbody > tr > th,
+.bd-content > table > tbody > tr > td,
+.bd-content > table > tfoot > tr > th,
+.bd-content > table > tfoot > tr > td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border: 1px solid #dcdef1;
+}
+
+/* line 43, ../ui-kit-docs-source/src/scss/docs/_content.scss */
+.bd-content > table > thead > tr > th > p:last-child,
+.bd-content > table > thead > tr > td > p:last-child,
+.bd-content > table > tbody > tr > th > p:last-child,
+.bd-content > table > tbody > tr > td > p:last-child,
+.bd-content > table > tfoot > tr > th > p:last-child,
+.bd-content > table > tfoot > tr > td > p:last-child {
+  margin-bottom: 0;
+}
+
+/* line 51, ../ui-kit-docs-source/src/scss/docs/_content.scss */
+.bd-content > table td:first-child > code {
+  white-space: nowrap;
+}
+
+/* line 57, ../ui-kit-docs-source/src/scss/docs/_content.scss */
+.bd-title {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: #3b3e66;
+}
+
+/* line 63, ../ui-kit-docs-source/src/scss/docs/_content.scss */
+.bd-lead {
+  font-size: 1.1875rem;
+  color: #a6a6b9;
+  margin: 0;
+}
+
+/* line 7, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+.bd-toc {
+  order: 2;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  /* line 7, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+  .bd-toc {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 4rem;
+    height: calc(100vh - 4rem);
+    overflow-y: auto;
+  }
+}
+
+/* line 28, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+.bd-sidebar {
+  order: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  /* line 28, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+  .bd-sidebar {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  @supports ((position: -webkit-sticky) or (position: sticky)) {
+    /* line 28, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+    .bd-sidebar {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 4rem;
+      z-index: 1000;
+      height: calc(100vh - 4rem);
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  /* line 28, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+  .bd-sidebar {
+    flex: 0 1 320px;
+  }
+}
+
+/* line 48, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+.bd-links {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+@media (min-width: 768px) {
+  /* line 48, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+  .bd-links {
+    display: block !important;
+  }
+}
+
+/* line 60, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+.bd-search-docs-toggle {
+  line-height: 1;
+  color: #3b3e66;
+}
+
+/* line 65, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+.bd-sidenav {
+  display: none;
+}
+
+/* line 70, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+.bd-toc-item.active {
+  margin-bottom: 1rem;
+}
+
+/* line 73, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+.bd-toc-item.active:not(:first-child) {
+  margin-top: 1rem;
+}
+
+/* line 77, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+.bd-toc-item.active > .bd-toc-link {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* line 80, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+.bd-toc-item.active > .bd-toc-link:hover {
+  background-color: transparent;
+}
+
+/* line 85, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+.bd-toc-item.active > .bd-sidenav {
+  display: block;
+}
+
+/* line 92, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+.bd-sidebar .nav > li > a {
+  display: block;
+  padding: .25rem 1.5rem;
+  font-size: 90%;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+/* line 99, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+.bd-sidebar .nav > li > a:hover {
+  color: #3c44b1;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+/* line 105, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+.bd-sidebar .nav > .active > a,
+.bd-sidebar .nav > .active:hover > a {
+  font-weight: 600;
+  color: #3c44b1;
+  background-color: transparent;
+}
+
+/* line 112, ../ui-kit-docs-source/src/scss/docs/_sidebar.scss */
+.bd-sidebar h5 {
+  font-size: 0.83125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+  padding: .15rem 1.5rem;
+}
+
+/* line 5, ../ui-kit-docs-source/src/scss/docs/_clipboard-js.scss */
+.bd-clipboard {
+  position: relative;
+  display: none;
+  float: right;
+}
+
+/* line 10, ../ui-kit-docs-source/src/scss/docs/_clipboard-js.scss */
+.bd-clipboard + .highlight {
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  /* line 5, ../ui-kit-docs-source/src/scss/docs/_clipboard-js.scss */
+  .bd-clipboard {
+    display: block;
+  }
+}
+
+/* line 19, ../ui-kit-docs-source/src/scss/docs/_clipboard-js.scss */
+.btn-clipboard {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  z-index: 10;
+  display: block;
+  padding: .25rem .5rem;
+  font-size: 75%;
+  color: #818a91;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0.65rem;
+}
+
+/* line 32, ../ui-kit-docs-source/src/scss/docs/_clipboard-js.scss */
+.btn-clipboard:hover {
+  color: #fff;
+  background-color: #027de7;
+}
+
+/* line 12, ../ui-kit-docs-source/src/scss/_base.scss */
+body {
+  display: block !important;
+}
+
+/* line 16, ../ui-kit-docs-source/src/scss/_base.scss */
+html,
+body {
+  height: auto;
+}

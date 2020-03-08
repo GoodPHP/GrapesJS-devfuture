@@ -1,0 +1,5 @@
+$((function () {
+
+    $('#sidebar-nav').metisMenu();
+
+}));

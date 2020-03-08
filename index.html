@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Customized editor by DevFuture.pro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+
+  <!-- <link rel="shortcut icon" href="./favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png"> -->
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!--  Stylesheets -->
+
+  <link rel="stylesheet" type="text/css" href="assets/css/bamburgh.min.css">
+
+  <link href="grapesjs/dist/css/grapes.min.css" rel="stylesheet" />
+  <link href="./assets/css/custom-grapesjs.css" rel="stylesheet">
+
+  <script src="grapesjs/dist/grapes.min.js"></script>
+  <script src="grapesjs-blocks-basic/dist/grapesjs-blocks-basic.min.js"></script>
+  <script src="grapesjs-navbar/dist/grapesjs-navbar.min.js"></script>
+  <script src="https://unpkg.com/grapesjs-plugin-export"></script>
+  <script src="https://unpkg.com/grapesjs-plugin-forms"></script>
+</head>
+
+<body id="app-top" class="sidebar-collapsed">
+
+  <div class="app-wrapper">
+    <div class="app-main">
+
+
+      <div class="app-content app-content-aside" id="editor-area">
+        <div class="app-content--sidebar app-content--sidebar__sm" id="sidebar-inner-1">
+          <div class="app-content--sidebar__header py-3 text-center gjs-pn-buttons">
+            <button type="button" class="btn btn-link btn-sm device-type bg-neutral-first" id="desktop-view">
+              <span class="btn-wrapper--icon">
+                <i class="fas fa-desktop"></i>
+              </span>
+            </button>
+
+            <button type="button" class="btn btn-sm btn-link device-type" id="tablet-view">
+              <span class="btn-wrapper--icon">
+                <i class="fas fa-tablet-alt"></i>
+              </span>
+            </button>
+
+            <button type="button" class="btn btn-sm btn-link device-type" id="mobile-view">
+              <span class="btn-wrapper--icon">
+                <i class="fas fa-mobile-alt"></i>
+              </span>
+            </button>
+          </div>
+          <div class="app-content--sidebar__header py-3 text-center gjs-pn-buttons">
+            <button type="button" class="btn btn-link btn-sm" id="editor-undo">
+              <span class="btn-wrapper--icon">
+                <i class="fas fa-undo"></i>
+              </span>
+            </button>
+
+            <button type="button" class="btn btn-link btn-sm" id="editor-styles">
+              <span class="btn-wrapper--icon">
+                <i class="fas fa-sliders-h"></i>
+              </span>
+            </button>
+
+            <button type="button" class="btn btn-sm btn-link" id="editor-redo">
+              <span class="btn-wrapper--icon">
+                <i class="fas fa-repeat"></i>
+              </span>
+            </button>
+          </div>
+          <div class="app-content--sidebar__content scrollbar-container ps ps--active-y">
+            <ul class="nav nav-pills nav-pills-hover flex-column">
+              <li class="nav-header">
+                <i class="fas fa-cogs"></i>
+                Settings
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="sw-visibility" href="#">
+                  <i class="far fa-square"></i>
+                  Show borders
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="editor-fullscreen" href="#">
+                  <i class="fas fa-expand-arrows-alt"></i>
+                  Fullscreen
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" id="export" data-target="#editor-export" href="#">
+                  <i class="fas fa-code"></i>
+                  Export
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" id="import" data-target="#editor-import" href="#">
+                  <i class="fas fa-download"></i>
+                  Import
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" id="canvas-clear" href="#">
+                  <i class="fas fa-trash"></i>
+                  Clear canvas
+                </a>
+              </li>
+            </ul>
+            <div class="nav-header">
+              <i class="fas fa-bars"></i>
+              <span>Layers</span>
+            </div>
+
+            <div class="py-2 layers-container"></div>
+
+            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+              <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+            </div>
+            <div class="ps__rail-y" style="top: 0px; height: 396px; right: 0px;">
+              <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 322px;"></div>
+            </div>
+          </div>
+          <div class="app-content--sidebar__footer">
+            <button type="button" class="btn btn-block btn-success btn-sm" id="editor-add">
+              <span class="btn-wrapper--icon">
+                <i class="fas fa-plus"></i>
+                Add
+              </span>
+            </button>
+            <button type="button" class="btn btn-block btn-info btn-sm" id="editor-preview">
+              <span class="btn-wrapper--icon">
+                <i class="far fa-eye"></i>
+                Preview
+              </span>
+            </button>
+            <a href="https://devfuture.pro" class="btn btn-block btn-primary btn-sm" target="_blank">
+              <i class="far fa-support"></i>
+              Support
+            </a>
+          </div>
+        </div>
+        <div class="app-content--sidebar" id="sidebar-inner-2">
+          <div class="app-content--sidebar__content scrollbar-container" id="blocks-mgr">
+
+          </div>
+          <div class="app-content--sidebar__footer">
+            <button type="button" class="btn btn-block btn-dark btn-sm" id='editor-close-bm'>
+              <span class="btn-wrapper--icon">
+                <i class="fas fa-times"></i>
+                Close
+              </span>
+            </button>
+          </div>
+        </div>
+        <div class="app-content--sidebar" id="sidebar-inner-3">
+          <div class="app-content--sidebar__content scrollbar-container" id="styles-or-traits-mgr">
+            <div id="traits-mgr">
+
+            </div>
+            <div id="styles-mgr">
+
+            </div>
+          </div>
+          <div class="app-content--sidebar__footer">
+            <button type="button" class="btn btn-block btn-dark btn-sm" id='editor-close-stmgr'>
+              <span class="btn-wrapper--icon">
+                <i class="fas fa-times"></i>
+                Close
+              </span>
+            </button>
+          </div>
+        </div>
+
+
+
+        <div id="gjs">
+
+        </div>
+
+        <!-- Export-modal -->
+        <div class="modal fade" id="editor-export" tabindex="-1" role="dialog" aria-labelledby="modal-b4" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="modal-title-default">
+                  <i class="fas fa-file-export"></i>
+                  Export
+                </h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body row">
+                <div class="col-lg-12">
+                  <ul class="nav nav-line" id="myTab3" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link" id="html-export-tab" data-toggle="tab" href="#html-export" role="tab" aria-controls="home" aria-selected="true">
+                        HTML
+                        <div class="divider"></div>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="css-export-tab" data-toggle="tab" href="#css-export" role="tab" aria-controls="profile" aria-selected="false">
+                        CSS
+                        <div class="divider"></div>
+                      </a>
+                    </li>
+                  </ul>
+
+                  <div class="tab-content p-2 pb-0">
+                    <div class="tab-pane fade" id="html-export" role="tabpanel" aria-labelledby="html-export-tab">
+
+                    </div>
+                    <div class="tab-pane fade" id="css-export" role="tabpanel" aria-labelledby="css-export-tab">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-pill ml-auto" id='gjs-export-zip'>
+                  <i class="fas fa-file-archive"></i>
+                  Export to ZIP
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- import modal -->
+        <div class="modal fade" id="editor-import" tabindex="-1" role="dialog" aria-labelledby="modal-b4" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="modal-title-default">
+                  <i class="fas fa-file-import"></i>
+                  Import
+                </h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body row">
+                <div class="col-lg-12">
+
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary ml-auto btn-pill" id='import-component'>
+                  <i class="fas fa-check"></i>
+                  Import
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--  Javascript Core -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--Bootstrap init-->
+
+  <!--MetisMenu-->
+
+  <script src="assets/vendor/metismenu/js/metismenu.min.js"></script>
+
+  <!--MetisMenu init-->
+
+  <script src="assets/js/demo/metismenu/metismenu.min.js"></script>
+
+  <!--Perfect scrollbar-->
+
+  <script src="assets/vendor/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
+
+  <!--Perfect scrollbar init-->
+
+  <script src="assets/js/demo/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+
+  <!--FeatherIcons-->
+
+  <script src="assets/vendor/feather-icons/js/feather-icons.min.js"></script>
+
+  <!--FeatherIcons init-->
+
+  <script src="assets/js/demo/feather-icons/feather-icons.min.js"></script>
+
+
+
+  <!--Apexcharts-->
+
+  <script src="assets/js/bamburgh.min.js"></script>
+
+  <!--Slick slideshow-->
+
+  <script src="assets/vendor/slick/js/slick.min.js"></script>
+
+  <!--Slick slideshow init-->
+
+  <script src="assets/js/demo/slick/slick.min.js"></script>
+
+  <!--DataTables-->
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.bootstrap4.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.4/css/fixedHeader.bootstrap4.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/keytable/2.5.0/css/keyTable.bootstrap4.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.bootstrap4.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/scroller/2.0.0/css/scroller.bootstrap4.min.css" />
+
+  <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.bootstrap4.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/keytable/2.5.0/js/dataTables.keyTable.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.2/js/responsive.bootstrap4.min.js"></script>
+
+  <!--Datatables init-->
+  <script src="assets/js/demo/datatables/datatables.min.js"></script>
+
+  <!--Notify init-->
+  <script type="text/javascript" src="assets/vendor/notify/js/notify.min.js"></script>
+
+  <script src="./assets/js/custom-grapesjs.js" charset="utf-8"></script>
+</body>
+
+</html>
