@@ -4,6 +4,8 @@ GrapesJS Editor Customised by DevFuture.pro
 
 <p align="center"><img src="https://devfuture.pro/wp-content/uploads/2020/03/editor-by-devfuture.png" alt="GrapesJS new design" width="900" align="center"/></p>
 
+Demo: https://devfuture.pro/live/new-design-grapesjs/
+
 We are pleased to present our version of the editor. We integrated the new design to GrapesJS.
 
 Our website: https://devfuture.pro/ <br/>
