@@ -9,7 +9,7 @@ Demo: https://devfuture.pro/live/new-design-grapesjs/
 We are pleased to present our version of the editor. We integrated the new design to GrapesJS.
 
 Our website: https://devfuture.pro/ <br/>
-Support: support@devfuture.pro
+Support: support@devfuture.pro <br/>
 Linkedin: https://www.linkedin.com/in/maksym-maliyshytskyi-6ab578182/
 
 We want promote our services.
