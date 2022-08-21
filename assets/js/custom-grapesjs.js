@@ -28,7 +28,7 @@ const editor = grapesjs.init({
   container: '#gjs',
   fromElement: true,
 
-  plugins: ['grapesjs-blocks-basic', 'grapesjs-plugin-export', 'grapesjs-plugin-forms', 'grapesjs-navbar'],
+  plugins: ['grapesjs-blocks-basic', 'grapesjs-plugin-forms', 'grapesjs-navbar'],
   pluginsOpts: {
     'grapesjs-blocks-basic': {}
   },
