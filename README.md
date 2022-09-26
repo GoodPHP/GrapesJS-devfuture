@@ -6,6 +6,8 @@ GrapesJS Editor Customised by DevFuture.pro
 
 Demo: https://devfuture.pro/live/new-design-grapesjs/
 
+GJS.MERKET: https://gjs.market/authors/devfuture-development
+
 We are pleased to present our version of the editor. We integrated the new design to GrapesJS.
 
 Our website: https://devfuture.pro/ <br/>
