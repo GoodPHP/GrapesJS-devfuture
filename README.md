@@ -1,5 +1,5 @@
 # GrapesJS-devfuture
-GrapesJS Editor Customised by DevFuture.pro
+GrapesJS Editor Customised
 
 
 <p align="center"><img src="https://devfuture.pro/wp-content/uploads/2020/03/editor-by-devfuture.png" alt="GrapesJS new design" width="900" align="center"/></p>

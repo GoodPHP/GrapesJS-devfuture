@@ -28,9 +28,11 @@ const editor = grapesjs.init({
   container: '#gjs',
   fromElement: true,
 
-  plugins: ['grapesjs-blocks-basic', 'grapesjs-plugin-forms', 'grapesjs-navbar'],
+  plugins: ['gjs-blocks-basic', 'grapesjs-plugin-forms', 'grapesjs-navbar','grapesjs-plugin-borders'],
   pluginsOpts: {
-    'grapesjs-blocks-basic': {}
+    'grapesjs-plugin-borders': {
+      'main_color': '#3c44b1', // For all
+    }
   },
 
   layerManager: {
@@ -188,7 +190,9 @@ window.addEventListener('load', ()=>{
   })
 
   $('#canvas-clear').on('click', (event)=>{
-    editor.Commands.run('core:canvas-clear');
+    if (window.confirm("Do you want to clean canvas?")) {
+      editor.Commands.run('core:canvas-clear');
+    }
   })
 
   $('#gjs-export-zip').on('click', (event)=>{

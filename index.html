@@ -6,27 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Customized editor by DevFuture.pro</title>
+  <title>Customized Editor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
 
-  <!-- <link rel="shortcut icon" href="./favicon/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png"> -->
 
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
 
   <!--  Stylesheets -->
-
-  <link rel="stylesheet" type="text/css" href="assets/css/bamburgh.min.css">
-
-  <link href="grapesjs/dist/css/grapes.min.css" rel="stylesheet" />
+  <link href="./assets/css/style.css" rel="stylesheet" >
+  <link href="https://unpkg.com/grapesjs@0.21.1/dist/css/grapes.min.css" rel="stylesheet" />
   <link href="./assets/css/custom-grapesjs.css" rel="stylesheet">
 
-  <script src="grapesjs/dist/grapes.min.js"></script>
-  <script src="grapesjs-blocks-basic/dist/grapesjs-blocks-basic.min.js"></script>
-  <script src="grapesjs-navbar/dist/grapesjs-navbar.min.js"></script>
+  <script src="https://unpkg.com/grapesjs@0.21.1"></script>
+  <script src="https://unpkg.com/grapesjs-blocks-basic"></script>
+  <script src="https://unpkg.com/grapesjs-navbar"></script>
   <script src="https://unpkg.com/grapesjs-plugin-forms"></script>
+  <script src="./assets/js/border/grapesjs-plugin-borders.min.js"></script>
 </head>
 
 <body id="app-top" class="sidebar-collapsed">
@@ -123,7 +119,7 @@
             <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
               <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
             </div>
-            <div class="ps__rail-y" style="top: 0px; height: 396px; right: 0px;">
+            <div class="ps__rail-y" style="top: 0px; display: none; height: 396px; right: 0px;">
               <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 322px;"></div>
             </div>
           </div>
@@ -151,7 +147,7 @@
 
           </div>
           <div class="app-content--sidebar__footer">
-            <button type="button" class="btn btn-block btn-dark btn-sm" id='editor-close-bm'>
+            <button type="button" class="btn btn-block btn-primary btn-sm" id='editor-close-bm'>
               <span class="btn-wrapper--icon">
                 <i class="fas fa-times"></i>
                 Close
@@ -161,15 +157,22 @@
         </div>
         <div class="app-content--sidebar" id="sidebar-inner-3">
           <div class="app-content--sidebar__content scrollbar-container" id="styles-or-traits-mgr">
-            <div id="traits-mgr">
-
-            </div>
+            
+            <div class="gjs-sm-sector gjs-sm-sector__traits no-select gjs-sm-open">
+              <div class="gjs-sm-sector-title" data-sector-title="">
+                <div class="gjs-sm-sector-caret"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M7,10L12,15L17,10H7Z"></path></svg></div>
+                <div class="gjs-sm-sector-label">Settings</div>
+              </div>
+            <div class="gjs-sm-properties">
+              <div id="traits-mgr"></div>
+            </div></div>
+            
             <div id="styles-mgr">
 
             </div>
           </div>
           <div class="app-content--sidebar__footer">
-            <button type="button" class="btn btn-block btn-dark btn-sm" id='editor-close-stmgr'>
+            <button type="button" class="btn btn-block btn-primary btn-sm" id='editor-close-stmgr'>
               <span class="btn-wrapper--icon">
                 <i class="fas fa-times"></i>
                 Close
@@ -180,9 +183,7 @@
 
 
 
-        <div id="gjs">
-
-        </div>
+        <div id="gjs"></div>
 
         <!-- Export-modal -->
         <div class="modal fade" id="editor-export" tabindex="-1" role="dialog" aria-labelledby="modal-b4" aria-hidden="true">
@@ -267,74 +268,10 @@
   </div>
 
   <!--  Javascript Core -->
-
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
   <!--Bootstrap init-->
-
-  <!--MetisMenu-->
-
-  <script src="assets/vendor/metismenu/js/metismenu.min.js"></script>
-
-  <!--MetisMenu init-->
-
-  <script src="assets/js/demo/metismenu/metismenu.min.js"></script>
-
-  <!--Perfect scrollbar-->
-
-  <script src="assets/vendor/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
-
-  <!--Perfect scrollbar init-->
-
-  <script src="assets/js/demo/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-
-  <!--FeatherIcons-->
-
-  <script src="assets/vendor/feather-icons/js/feather-icons.min.js"></script>
-
-  <!--FeatherIcons init-->
-
-  <script src="assets/js/demo/feather-icons/feather-icons.min.js"></script>
-
-
-
-  <!--Apexcharts-->
-
-  <script src="assets/js/bamburgh.min.js"></script>
-
-  <!--Slick slideshow-->
-
-  <script src="assets/vendor/slick/js/slick.min.js"></script>
-
-  <!--Slick slideshow init-->
-
-  <script src="assets/js/demo/slick/slick.min.js"></script>
-
-  <!--DataTables-->
-
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.bootstrap4.min.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.4/css/fixedHeader.bootstrap4.min.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/keytable/2.5.0/css/keyTable.bootstrap4.min.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.bootstrap4.min.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/scroller/2.0.0/css/scroller.bootstrap4.min.css" />
-
-  <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.bootstrap4.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
-  <script src="https://cdn.datatables.net/keytable/2.5.0/js/dataTables.keyTable.min.js"></script>
-  <script src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.min.js"></script>
-  <script src="https://cdn.datatables.net/responsive/2.2.2/js/responsive.bootstrap4.min.js"></script>
-
-  <!--Datatables init-->
-  <script src="assets/js/demo/datatables/datatables.min.js"></script>
-
-  <!--Notify init-->
-  <script type="text/javascript" src="assets/vendor/notify/js/notify.min.js"></script>
 
   <script src="./assets/js/custom-grapesjs.js" charset="utf-8"></script>
 </body>
