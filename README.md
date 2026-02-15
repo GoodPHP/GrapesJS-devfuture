@@ -9,7 +9,7 @@ Modernized GrapesJS preset UI with improved panel UX, vanilla JavaScript interac
 	<img alt="Vanilla JS" src="https://img.shields.io/badge/Frontend-Vanilla%20JS-111827?style=for-the-badge"/>
 </p>
 
-<p align="center"><img src="https://devfuture.pro/wp-content/uploads/2020/03/editor-by-devfuture.png" alt="GrapesJS DevFuture editor" width="900"/></p>
+<p align="center"><img src="https://devfuture.pro/wp-content/uploads/2020/03/editor-by-devfuture1.png" alt="GrapesJS DevFuture editor 2.0" width="900"/></p>
 
 ## Highlights
 
