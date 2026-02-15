@@ -99,7 +99,7 @@ Then open `http://localhost:8080`.
 - GJS.MARKET: https://gjs.market/authors/devfuture-development
 - Website: https://devfuture.pro/
 - Support: support@devfuture.pro
-- AutographJS: https://autographjs.com/
+- AutographJS: https://autographjs.top/
 - ScribeJS: https://scribejs.top/
 ## License
 
