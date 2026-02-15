@@ -15,13 +15,14 @@
 
   <!--  Stylesheets -->
   <link href="./assets/css/style.css" rel="stylesheet" >
-  <link href="https://unpkg.com/grapesjs@0.21.1/dist/css/grapes.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/grapesjs@0.22.14/dist/css/grapes.min.css" rel="stylesheet" />
   <link href="./assets/css/custom-grapesjs.css" rel="stylesheet">
 
-  <script src="https://unpkg.com/grapesjs@0.21.1"></script>
-  <script src="https://unpkg.com/grapesjs-blocks-basic"></script>
-  <script src="https://unpkg.com/grapesjs-navbar"></script>
-  <script src="https://unpkg.com/grapesjs-plugin-forms"></script>
+  <script src="https://unpkg.com/grapesjs@0.22.14"></script>
+  <script src="https://unpkg.com/grapesjs-blocks-basic@1.0.2"></script>
+  <script src="https://unpkg.com/grapesjs-navbar@1.0.2"></script>
+  <script src="https://unpkg.com/grapesjs-plugin-forms@2.0.6"></script>
+  <script src="https://unpkg.com/grapesjs-plugin-scribejs@1.0.28/dist/index.js"></script>
   <script src="./assets/js/border/grapesjs-plugin-borders.min.js"></script>
 </head>
 
@@ -90,13 +91,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" id="export" data-target="#editor-export" href="#">
+                <a class="nav-link" data-bs-toggle="modal" id="export" data-bs-target="#editor-export" href="#">
                   <i class="fas fa-code"></i>
                   Export
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" id="import" data-target="#editor-import" href="#">
+                <a class="nav-link" data-bs-toggle="modal" id="import" data-bs-target="#editor-import" href="#">
                   <i class="fas fa-download"></i>
                   Import
                 </a>
@@ -123,26 +124,16 @@
               <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 322px;"></div>
             </div>
           </div>
-          <div class="app-content--sidebar__footer">
-            <button type="button" class="btn btn-block btn-success btn-sm" id="editor-add">
-              <span class="btn-wrapper--icon">
-                <i class="fas fa-plus"></i>
-                Add
-              </span>
-            </button>
-            <button type="button" class="btn btn-block btn-info btn-sm" id="editor-preview">
-              <span class="btn-wrapper--icon">
-                <i class="far fa-eye"></i>
-                Preview
-              </span>
-            </button>
-            <a href="https://devfuture.pro" class="btn btn-block btn-primary btn-sm" target="_blank">
-              <i class="far fa-support"></i>
-              Support
-            </a>
-          </div>
         </div>
         <div class="app-content--sidebar" id="sidebar-inner-2">
+          <div class="app-content--sidebar__header py-2 px-2">
+            <div class="blocks-search-wrap">
+              <span class="blocks-search-icon">
+                <i class="fas fa-search"></i>
+              </span>
+              <input type="text" class="form-control form-control-sm" id="blocks-search" placeholder="Search blocks">
+            </div>
+          </div>
           <div class="app-content--sidebar__content scrollbar-container" id="blocks-mgr">
 
           </div>
@@ -156,6 +147,9 @@
           </div>
         </div>
         <div class="app-content--sidebar" id="sidebar-inner-3">
+          <div class="app-content--sidebar__header py-2 px-2">
+            <div class="styles-panel-title">Styles</div>
+          </div>
           <div class="app-content--sidebar__content scrollbar-container" id="styles-or-traits-mgr">
             
             <div class="gjs-sm-sector gjs-sm-sector__traits no-select gjs-sm-open">
@@ -169,6 +163,9 @@
             
             <div id="styles-mgr">
 
+            </div>
+            <div id="style-empty-state" class="style-empty-state">
+              Select an element on canvas to edit styles and settings.
             </div>
           </div>
           <div class="app-content--sidebar__footer">
@@ -184,6 +181,55 @@
 
 
         <div id="gjs"></div>
+        <div class="editor-floating-actions">
+          <button type="button" class="btn btn-success btn-sm" id="editor-add">
+            <span class="btn-wrapper--icon">
+              <i class="fas fa-plus"></i>
+              Add
+            </span>
+          </button>
+          <button type="button" class="btn btn-info btn-sm" id="editor-preview">
+            <span class="btn-wrapper--icon">
+              <i class="far fa-eye"></i>
+              Preview
+            </span>
+          </button>
+          <a href="https://devfuture.pro" class="btn btn-primary btn-sm" target="_blank">
+            <i class="far fa-support"></i>
+            Support
+          </a>
+        </div>
+
+        <div class="signature-modal" id="signature-modal" aria-hidden="true">
+          <div class="signature-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="signature-modal-title">
+            <div class="signature-modal__header">
+              <div>
+                <h6 id="signature-modal-title">Signature Editor</h6>
+                <p class="signature-modal__subtitle">Double-click a signature block to open this editor</p>
+              </div>
+              <button type="button" class="btn btn-light btn-sm" id="signature-close" aria-label="Close">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div class="signature-modal__body">
+              <canvas id="signature-canvas"></canvas>
+            </div>
+            <div class="signature-modal__footer">
+              <div class="signature-modal__footer-controls">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="signature-undo">
+                  <i class="fas fa-undo me-1"></i>
+                  Undo
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="signature-redo">
+                  <i class="fas fa-redo me-1"></i>
+                  Redo
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="signature-clear">Clear</button>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" id="signature-save">Insert Signature</button>
+            </div>
+          </div>
+        </div>
 
         <!-- Export-modal -->
         <div class="modal fade" id="editor-export" tabindex="-1" role="dialog" aria-labelledby="modal-b4" aria-hidden="true">
@@ -194,7 +240,7 @@
                   <i class="fas fa-file-export"></i>
                   Export
                 </h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
@@ -202,13 +248,13 @@
                 <div class="col-lg-12">
                   <ul class="nav nav-line" id="myTab3" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link" id="html-export-tab" data-toggle="tab" href="#html-export" role="tab" aria-controls="home" aria-selected="true">
+                      <a class="nav-link" id="html-export-tab" data-bs-toggle="tab" href="#html-export" role="tab" aria-controls="home" aria-selected="true">
                         HTML
                         <div class="divider"></div>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" id="css-export-tab" data-toggle="tab" href="#css-export" role="tab" aria-controls="profile" aria-selected="false">
+                      <a class="nav-link" id="css-export-tab" data-bs-toggle="tab" href="#css-export" role="tab" aria-controls="profile" aria-selected="false">
                         CSS
                         <div class="divider"></div>
                       </a>
@@ -244,7 +290,7 @@
                   <i class="fas fa-file-import"></i>
                   Import
                 </h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
@@ -268,9 +314,7 @@
   </div>
 
   <!--  Javascript Core -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="./assets/vendor/bootstrap/js/bootstrap.min.js"></script>
   <!--Bootstrap init-->
 
   <script src="./assets/js/custom-grapesjs.js" charset="utf-8"></script>
