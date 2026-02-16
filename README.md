@@ -93,6 +93,46 @@ python3 -m http.server 8080
 
 Then open `http://localhost:8080`.
 
+## NPM Preset Package
+
+This repository now includes a publish-ready package:
+
+- `packages/grapesjs-preset-devfuture`
+
+Quick usage after publish:
+
+```bash
+npm i grapesjs grapesjs-preset-devfuture
+```
+
+```js
+import grapesjs from 'grapesjs';
+import grapesjsPresetDevfuture from 'grapesjs-preset-devfuture';
+
+import 'grapesjs/dist/css/grapes.min.css';
+import 'grapesjs-preset-devfuture/style.css';
+import 'grapesjs-preset-devfuture/custom-grapesjs.css';
+
+grapesjs.init({
+	container: '#gjs',
+	plugins: [grapesjsPresetDevfuture],
+	pluginsOpts: {
+		[grapesjsPresetDevfuture]: {
+			setupManagers: true,
+			setupBlocks: true,
+			setupSignatureBlock: true
+		}
+	}
+});
+```
+
+Publish:
+
+```bash
+cd packages/grapesjs-preset-devfuture
+npm publish --access public
+```
+
 ## Project Links
 
 - Demo: https://devfuture.pro/live/new-design-grapesjs/
